@@ -69,8 +69,8 @@ void operator delete[](void* p)
 		ExFreePoolWithTag(p, 'kstl');
 #endif // !DBG
 
-	if (p) {	//operator new[] 会多分配8个字节来保存new[]对象的个数
-		ExFreePoolWithTag((void*)((ULONG_PTR)p - 8), 'kstl');
+	if (p) {	//operator new[] 会用分配的前(size_t)个字节来保存new[]对象的个数
+		ExFreePoolWithTag((void*)((ULONG_PTR)p - sizeof(size_t)), 'kstl');
 		Log("Free at %p\n", p);
 	}
 	

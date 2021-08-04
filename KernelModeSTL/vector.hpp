@@ -91,10 +91,8 @@ namespace std {
 	template<typename T>
 	vector<T>::~vector()
 	{
-		auto tmp_start = start;
-
 		//编译器会替我们逐个start->~T();
-		delete[] tmp_start;
+		delete[] start;
 	}
 
 }
