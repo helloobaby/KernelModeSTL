@@ -1,6 +1,13 @@
 #pragma once
 #include"include/global.hpp"
 
+/***
+
+*Revision History:
+	2021/8/4	add pop_back()、front()、back()
+	2021/8/5	add	erase()、resize()、clear()、		
+****/
+
 namespace std {
 
 
@@ -20,15 +27,52 @@ namespace std {
 		~vector();
 
 		iterator begin()const { return start; }
-		iterator end()const  { return finish; }
+		iterator end()const { return finish; }
 
-		size_type size() const { return (size_type)(end()-begin()); }
+		size_type size() const { return (size_type)(end() - begin()); }
 
 		bool empty() const { return begin() == end(); }
 
 		void push_back(const T& x);
-
+		void pop_back() { --finish; destroy(finish); }
 		void insert_aux(iterator position, const T& x);
+		reference front(){ return *begin(); };
+		reference back() { return *(end() - 1); };
+		iterator erase(iterator position)
+		{
+			//这行代码其实可以用在list上面，因为list他是直接删除的，原始迭代器必然失效，但是vector不会，因为是线性的
+			//iterator next = position++;
+			
+			/***
+			*这里侯捷的STL源码剖析p117的erase方法好像是有勘误的
+			*他只判断了要删除的位置和可用空间的最后位置，不因该是当前使用空间的最后位置？
+			***/
+			if (position >= finish)	//never return
+				ExRaiseAccessViolation();
+			
+			if (position + 1 == finish)
+			{
+				--finish;
+				destroy(finish);
+				return position;
+			}
+			else
+			{
+				auto tmp = position;
+				while (position < finish - 1)
+				{
+					destroy(position);
+					auto next = position + 1;
+					construct(position, *next);
+					position++;
+					
+				}
+				--finish;
+				return tmp;
+			}
+
+
+		}
 
 	private:
 		//[this]

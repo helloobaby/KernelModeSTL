@@ -3,7 +3,7 @@
 namespace std
 {
 		string::~string() {
-			delete m_src;
+			delete[] m_src;
 		}
 
 		string::string(const char* to_copy)
