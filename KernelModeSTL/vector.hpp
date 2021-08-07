@@ -63,17 +63,46 @@ namespace std {
 				{
 					destroy(position);
 					auto next = position + 1;
+					/*
+						这里不需要析构next，因为我们刚开始用的是new[]，编译器记得我们总共多少个对象，
+						析构的时候是delete[]，这样编译器确保我们刚开始分配的所有对象都会被析构，如果这里
+						要析构的话，vector的析构函数就得自己从start到finish释放对象，而不能delete[]
+					*/
 					construct(position, *next);
+					destory(next);
 					position++;
-					
+
 				}
 				--finish;
 				return tmp;
 			}
-
-
 		}
-
+		iterator erase(iterator first, iterator last)
+		{
+			if (last > finish)
+				ExRaiseAccessViolation();
+			auto tmp = first;
+			while ((first++) != last)
+			{
+				destroy(first - 1);
+			}
+			first = tmp;
+			if (last < finish)
+			{
+				while ((last++) != finish)
+				{
+					construct(first, *(last - 1));
+					destroy(last - 1);
+					first++;
+				}
+			}
+			finish = first;
+		}
+		void resize(size_type new_size, const T& x = T())
+		{
+			//if (new_size < size())
+				
+		}
 	private:
 		//[this]
 		iterator start;		//表示目前使用空间的头
@@ -107,20 +136,23 @@ namespace std {
 			++finish;
 		}
 		else {
+			
 			const size_type old_size = size();
 			const size_type new_size = (!old_size) ? 1 : old_size * 2;
 
 			iterator new_start = new T[new_size];//编译器实现为sizeof(T) * new_size,实际分配会加size_t个字节
 			iterator new_finish = new_start;
 
-			if (start != 0) {
-				iterator tmp_start = start;
-				while (tmp_start < finish) {
-					construct(new_finish, *tmp_start);
+			if (start != 0) {//原先vector中存有数据，将旧数据拷贝到新vector中
+				auto tmp = start;
+				while (start < finish) {
+					construct(new_finish, *start);
 					new_finish++;
-					tmp_start++;
+					start->~T();
+					start++;
 				}
-				delete[] start;
+				//数据移动完之后记得释放
+				deallocate((size_t*)tmp - 1);
 			}
 			
 			end_of_storage = new_start + new_size;
@@ -135,8 +167,12 @@ namespace std {
 	template<typename T>
 	vector<T>::~vector()
 	{
-		//编译器会替我们逐个start->~T();
-		delete[] start;
+		/*
+			编译器会替我们逐个start->~T();
+		*/
+		//delete[] start;
+		destroy<vector<T>>(start, finish);
+		deallocate((size_t*)start-1);
 	}
 
 }

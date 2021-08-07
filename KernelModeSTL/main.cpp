@@ -7,25 +7,26 @@ void DriverUnload(PDRIVER_OBJECT driverObject);
 using std::string;
 using std::vector;
 
+extern ULONG memory_alloc;
+extern ULONG memory_free;
+
 extern "C" NTSTATUS DriverEntry(PDRIVER_OBJECT driverObject, PUNICODE_STRING registPath)
 {
 	driverObject->DriverUnload = DriverUnload;
 
+	test();
+
 	//leetcode58();
-	vector<string> a;
-	a.push_back("123");
-	a.push_back("456");
-	a.push_back("789");
-	a.erase(a.begin()); 
-	vector<string>::iterator begin = a.begin();
-	while (begin != a.end())
+
+
+
+
+	//ÅÐ¶ÏÊÇ·ñ´æÔÚmemory leak
+	if (memory_free != memory_alloc)
 	{
-		Log("%s ", begin->c_str());
-		begin++;
+		Log("[WARNING]Memory Leaked!\n");
+		Log("%d %d", memory_alloc, memory_free);
 	}
-	Log("size %d ", a.size());
-
-
 	return STATUS_SUCCESS;
 }
 

@@ -9,6 +9,7 @@
 #include <stddef.h>
 #pragma warning(pop)
 
+
 ULONG Log(const char* format, ...);
 
 void* operator new(size_t size);
@@ -19,6 +20,8 @@ void operator delete(void* p);
 void operator delete(void* p,size_t size);
 void operator delete[](void* p);
 void operator delete[](void* p, size_t size);
+
+void deallocate(void* p);
 
 template<typename T1,typename T2>
 inline void construct(T1* p, T2& value)
@@ -34,12 +37,11 @@ inline void destroy(T* pointer)
 }
 
 template<typename T>
-inline void destroy(typename T::iterator first,typename T::iterator last)
+inline void destroy(typename T::iterator first, typename T::iterator last)
 {
-	while (first != last)
-	{
-		first->~T();
-		first++;
+	while (first != last) {
+		destroy(&*first);
+		++first;
 	}
 }
 
