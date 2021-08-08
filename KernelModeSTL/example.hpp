@@ -5,30 +5,17 @@
 #include"string.hpp"
 #include"vector.hpp"
 
+
 using std::string;
+using std::wstring;
 using std::vector;
 
 
 void test()
 {
-	vector<string> a;
-	//string s("hello world");
-	a.push_back("12");
-	a.push_back("34");
-	a.push_back("56");
-	a.push_back("78");
-	a.push_back("910");
-	a.push_back("1112");
-	a.push_back("1314");
-	//DbgBreakPoint();
-	a.erase(a.begin()+1,a.begin()+2); 
-	vector<string>::iterator begin = a.begin();
-	while (begin != a.end())
-	{
-		Log("%s ", begin->c_str());
-		begin++;
-	}
-	Log("size %d ", a.size());
+	wstring a(L"adasada");
+	Log("%ws", a.c_str());
+	
 }
 
 //这里会做测试，然后拿力扣或其他算法网站的题目当例子

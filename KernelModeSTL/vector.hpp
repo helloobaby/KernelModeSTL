@@ -98,10 +98,42 @@ namespace std {
 			}
 			finish = first;
 		}
-		void resize(size_type new_size, const T& x = T())
+		void capacity()const { return size_type(end() - begin()); }
+		
+		
+		/*
+		*
+		void insert(iterator postion, size_type n, const T& x)
 		{
-			//if (new_size < size())
+		
+		}
+		*/
+		void resize(size_type new_size)
+		{
+			if (new_size < size()) {
+				destroy<vector<T>>(begin() + new_size, finish);
+				finish = begin() + new_size;
+			}
+			else if(new_size > size())
+			{
+				//空间扩大要引起空间的重新分配
 				
+				//保存原来的内存地址
+				auto tmp = new T[new_size];
+				auto new_start = tmp;
+				auto old_start = start;
+				while (start != finish) {
+					construct(tmp, *start);
+					destroy(start);
+					start++;
+					tmp++;
+				}
+				deallocate((size_t*)old_start - 1);
+				start = new_start;
+				finish = tmp;
+				end_of_storage = start + new_size;
+
+			}
 		}
 	private:
 		//[this]
