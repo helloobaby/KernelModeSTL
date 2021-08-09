@@ -160,14 +160,21 @@
     <FilesToPackage Include="$(TargetPath)" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="hashtable.cpp" />
     <ClCompile Include="include\global.cpp" />
+    <ClCompile Include="list.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="map.cpp" />
     <ClCompile Include="string.cpp" />
     <ClCompile Include="vector.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="algorithm.hpp" />
     <ClInclude Include="example.hpp" />
+    <ClInclude Include="hashtable.hpp" />
     <ClInclude Include="include\global.hpp" />
+    <ClInclude Include="list.hpp" />
+    <ClInclude Include="map.hpp" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="string.hpp" />
     <ClInclude Include="vector.hpp" />

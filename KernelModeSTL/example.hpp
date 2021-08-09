@@ -13,8 +13,7 @@ using std::vector;
 
 void test()
 {
-	wstring a(L"adasada");
-	Log("%ws", a.c_str());
+	
 	
 }
 
@@ -35,7 +34,6 @@ void leetcode58() {
 	a.push_back("tree");
 	Log("%d", countCharacters(a, "atach"));
 }
-
 int countCharacters(vector<string>& words, string chars) {
 
 	int lenth = 0;
@@ -63,4 +61,16 @@ int countCharacters(vector<string>& words, string chars) {
 		current = 0;
 	}
 	return lenth;
+}
+
+//https://leetcode-cn.com/problems/contains-duplicate/
+bool containsDuplicate(vector<int>& nums) {
+	
+	//std::sort(nums.begin(), nums.end());
+	for (int i = 0; i < nums.size() - 1; i++)
+	{
+		if (nums[i] == nums[i + 1])
+			return true;
+	}
+	return false;
 }

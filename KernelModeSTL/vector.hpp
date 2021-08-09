@@ -99,7 +99,7 @@ namespace std {
 			finish = first;
 		}
 		void capacity()const { return size_type(end() - begin()); }
-		
+		reference operator[](size_type n) { return *(begin() + n); }
 		
 		/*
 		*

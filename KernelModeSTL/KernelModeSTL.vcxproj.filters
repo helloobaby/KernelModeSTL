@@ -22,6 +22,18 @@
     <Filter Include="vector">
       <UniqueIdentifier>{59622197-0102-4523-926f-4a8302f9d870}</UniqueIdentifier>
     </Filter>
+    <Filter Include="algorithm">
+      <UniqueIdentifier>{0a366bf3-6aaa-4cca-805a-aca7bfb1dfce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="list">
+      <UniqueIdentifier>{51293e63-318e-48c6-b28a-809822e65358}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="map">
+      <UniqueIdentifier>{bd551e07-9324-4298-8c44-d339392df893}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="hashtable">
+      <UniqueIdentifier>{6df19fba-1eeb-431f-ad3f-bc244e6b3a46}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Inf Include="KernelModeSTL.inf">
@@ -41,6 +53,15 @@
     <ClCompile Include="vector.cpp">
       <Filter>vector</Filter>
     </ClCompile>
+    <ClCompile Include="list.cpp">
+      <Filter>list</Filter>
+    </ClCompile>
+    <ClCompile Include="map.cpp">
+      <Filter>map</Filter>
+    </ClCompile>
+    <ClCompile Include="hashtable.cpp">
+      <Filter>hashtable</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -57,6 +78,18 @@
     </ClInclude>
     <ClInclude Include="example.hpp">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="algorithm.hpp">
+      <Filter>algorithm</Filter>
+    </ClInclude>
+    <ClInclude Include="list.hpp">
+      <Filter>list</Filter>
+    </ClInclude>
+    <ClInclude Include="map.hpp">
+      <Filter>map</Filter>
+    </ClInclude>
+    <ClInclude Include="hashtable.hpp">
+      <Filter>hashtable</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
