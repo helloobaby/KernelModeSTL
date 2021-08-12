@@ -4,8 +4,8 @@
 /***
 
 *Revision History:
-	2021/8/4	add pop_back()¡¢front()¡¢back()
-	2021/8/5	add	erase()¡¢resize()¡¢clear()¡¢		
+	2021/8/4	add pop_back()ã€front()ã€back()
+	2021/8/5	add	erase()ã€resize()ã€clear()ã€		
 ****/
 
 namespace std {
@@ -40,12 +40,12 @@ namespace std {
 		reference back() { return *(end() - 1); };
 		iterator erase(iterator position)
 		{
-			//ÕâĞĞ´úÂëÆäÊµ¿ÉÒÔÓÃÔÚlistÉÏÃæ£¬ÒòÎªlistËûÊÇÖ±½ÓÉ¾³ıµÄ£¬Ô­Ê¼µü´úÆ÷±ØÈ»Ê§Ğ§£¬µ«ÊÇvector²»»á£¬ÒòÎªÊÇÏßĞÔµÄ
+			//è¿™è¡Œä»£ç å…¶å®å¯ä»¥ç”¨åœ¨listä¸Šé¢ï¼Œå› ä¸ºlistä»–æ˜¯ç›´æ¥åˆ é™¤çš„ï¼ŒåŸå§‹è¿­ä»£å™¨å¿…ç„¶å¤±æ•ˆï¼Œä½†æ˜¯vectorä¸ä¼šï¼Œå› ä¸ºæ˜¯çº¿æ€§çš„
 			//iterator next = position++;
 			
 			/***
-			*ÕâÀïºî½İµÄSTLÔ´ÂëÆÊÎöp117µÄerase·½·¨ºÃÏñÊÇÓĞ¿±ÎóµÄ
-			*ËûÖ»ÅĞ¶ÏÁËÒªÉ¾³ıµÄÎ»ÖÃºÍ¿ÉÓÃ¿Õ¼äµÄ×îºóÎ»ÖÃ£¬²»Òò¸ÃÊÇµ±Ç°Ê¹ÓÃ¿Õ¼äµÄ×îºóÎ»ÖÃ£¿
+			*è¿™é‡Œä¾¯æ·çš„STLæºç å‰–æp117çš„eraseæ–¹æ³•å¥½åƒæ˜¯æœ‰å‹˜è¯¯çš„
+			*ä»–åªåˆ¤æ–­äº†è¦åˆ é™¤çš„ä½ç½®å’Œå¯ç”¨ç©ºé—´çš„æœ€åä½ç½®ï¼Œä¸å› è¯¥æ˜¯å½“å‰ä½¿ç”¨ç©ºé—´çš„æœ€åä½ç½®ï¼Ÿ
 			***/
 			if (position >= finish)	//never return
 				ExRaiseAccessViolation();
@@ -64,9 +64,9 @@ namespace std {
 					destroy(position);
 					auto next = position + 1;
 					/*
-						ÕâÀï²»ĞèÒªÎö¹¹next£¬ÒòÎªÎÒÃÇ¸Õ¿ªÊ¼ÓÃµÄÊÇnew[]£¬±àÒëÆ÷¼ÇµÃÎÒÃÇ×Ü¹²¶àÉÙ¸ö¶ÔÏó£¬
-						Îö¹¹µÄÊ±ºòÊÇdelete[]£¬ÕâÑù±àÒëÆ÷È·±£ÎÒÃÇ¸Õ¿ªÊ¼·ÖÅäµÄËùÓĞ¶ÔÏó¶¼»á±»Îö¹¹£¬Èç¹ûÕâÀï
-						ÒªÎö¹¹µÄ»°£¬vectorµÄÎö¹¹º¯Êı¾ÍµÃ×Ô¼º´Óstartµ½finishÊÍ·Å¶ÔÏó£¬¶ø²»ÄÜdelete[]
+						è¿™é‡Œä¸éœ€è¦ææ„nextï¼Œå› ä¸ºæˆ‘ä»¬åˆšå¼€å§‹ç”¨çš„æ˜¯new[]ï¼Œç¼–è¯‘å™¨è®°å¾—æˆ‘ä»¬æ€»å…±å¤šå°‘ä¸ªå¯¹è±¡ï¼Œ
+						ææ„çš„æ—¶å€™æ˜¯delete[]ï¼Œè¿™æ ·ç¼–è¯‘å™¨ç¡®ä¿æˆ‘ä»¬åˆšå¼€å§‹åˆ†é…çš„æ‰€æœ‰å¯¹è±¡éƒ½ä¼šè¢«ææ„ï¼Œå¦‚æœè¿™é‡Œ
+						è¦ææ„çš„è¯ï¼Œvectorçš„ææ„å‡½æ•°å°±å¾—è‡ªå·±ä»startåˆ°finishé‡Šæ”¾å¯¹è±¡ï¼Œè€Œä¸èƒ½delete[]
 					*/
 					construct(position, *next);
 					destory(next);
@@ -116,9 +116,9 @@ namespace std {
 			}
 			else if(new_size > size())
 			{
-				//¿Õ¼äÀ©´óÒªÒıÆğ¿Õ¼äµÄÖØĞÂ·ÖÅä
+				//ç©ºé—´æ‰©å¤§è¦å¼•èµ·ç©ºé—´çš„é‡æ–°åˆ†é…
 				
-				//±£´æÔ­À´µÄÄÚ´æµØÖ·
+				//ä¿å­˜åŸæ¥çš„å†…å­˜åœ°å€
 				auto tmp = new T[new_size];
 				auto new_start = tmp;
 				auto old_start = start;
@@ -128,6 +128,7 @@ namespace std {
 					start++;
 					tmp++;
 				}
+				if(old_start)
 				deallocate((size_t*)old_start - 1);
 				start = new_start;
 				finish = tmp;
@@ -137,11 +138,11 @@ namespace std {
 		}
 	private:
 		//[this]
-		iterator start;		//±íÊ¾Ä¿Ç°Ê¹ÓÃ¿Õ¼äµÄÍ·
+		iterator start;		//è¡¨ç¤ºç›®å‰ä½¿ç”¨ç©ºé—´çš„å¤´
 		//[this+8]
-		iterator finish;	//±íÊ¾Ä¿Ç°Ê¹ÓÃ¿Õ¼äµÄÎ²
+		iterator finish;	//è¡¨ç¤ºç›®å‰ä½¿ç”¨ç©ºé—´çš„å°¾
 		//[this+16]
-		iterator end_of_storage;//±íÊ¾Ä¿Ç°¿ÉÓÃ¿Õ¼äµÄÎ²
+		iterator end_of_storage;//è¡¨ç¤ºç›®å‰å¯ç”¨ç©ºé—´çš„å°¾
 
 	};
 
@@ -172,10 +173,10 @@ namespace std {
 			const size_type old_size = size();
 			const size_type new_size = (!old_size) ? 1 : old_size * 2;
 
-			iterator new_start = new T[new_size];//±àÒëÆ÷ÊµÏÖÎªsizeof(T) * new_size,Êµ¼Ê·ÖÅä»á¼Ósize_t¸ö×Ö½Ú
+			iterator new_start = new T[new_size];//ç¼–è¯‘å™¨å®ç°ä¸ºsizeof(T) * new_size,å®é™…åˆ†é…ä¼šåŠ size_tä¸ªå­—èŠ‚
 			iterator new_finish = new_start;
 
-			if (start != 0) {//Ô­ÏÈvectorÖĞ´æÓĞÊı¾İ£¬½«¾ÉÊı¾İ¿½±´µ½ĞÂvectorÖĞ
+			if (start != 0) {//åŸå…ˆvectorä¸­å­˜æœ‰æ•°æ®ï¼Œå°†æ—§æ•°æ®æ‹·è´åˆ°æ–°vectorä¸­
 				auto tmp = start;
 				while (start < finish) {
 					construct(new_finish, *start);
@@ -183,7 +184,7 @@ namespace std {
 					start->~T();
 					start++;
 				}
-				//Êı¾İÒÆ¶¯ÍêÖ®ºó¼ÇµÃÊÍ·Å
+				//æ•°æ®ç§»åŠ¨å®Œä¹‹åè®°å¾—é‡Šæ”¾
 				deallocate((size_t*)tmp - 1);
 			}
 			
@@ -200,7 +201,7 @@ namespace std {
 	vector<T>::~vector()
 	{
 		/*
-			±àÒëÆ÷»áÌæÎÒÃÇÖğ¸östart->~T();
+			ç¼–è¯‘å™¨ä¼šæ›¿æˆ‘ä»¬é€ä¸ªstart->~T();
 		*/
 		//delete[] start;
 		destroy<vector<T>>(start, finish);
