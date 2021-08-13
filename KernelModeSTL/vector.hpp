@@ -184,7 +184,7 @@ namespace std {
 					start++;
 				}
 				//数据移动完之后记得释放
-				deallocate((size_t*)tmp - 1);
+				deallocate((size_t*)tmp);
 			}
 			
 			end_of_storage = new_start + new_size;
@@ -199,12 +199,15 @@ namespace std {
 	template<typename T>
 	vector<T>::~vector()
 	{
+		if (!start)
+			return;
+
 		/*
 			编译器会替我们逐个start->~T();
 		*/
 		//delete[] start;
 		destroy<vector<T>>(start, finish);
-		deallocate((size_t*)start-1);
+		deallocate((size_t*)start);
 	}
 
 }

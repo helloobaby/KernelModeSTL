@@ -13,8 +13,13 @@ using std::vector;
 
 void test()
 {
-	
-	
+	vector<int> a;
+	a.push_back(123);
+	a.push_back(123);
+	a.push_back(123);
+	a.push_back(123);
+	a.push_back(123);
+	a.push_back(123);
 }
 
 //这里会做测试，然后拿力扣或其他算法网站的题目当例子
