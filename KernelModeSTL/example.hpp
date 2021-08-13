@@ -10,22 +10,18 @@ using std::string;
 using std::wstring;
 using std::vector;
 
+void leetcode58();
+int countCharacters(vector<string>& words, string chars);
+
 
 void test()
 {
-	vector<int> a;
-	a.push_back(123);
-	a.push_back(123);
-	a.push_back(123);
-	a.push_back(123);
-	a.push_back(123);
-	a.push_back(123);
+	leetcode58();
 }
 
 //这里会做测试，然后拿力扣或其他算法网站的题目当例子
 
-void leetcode58();
-int countCharacters(vector<string>& words, string chars);
+
 
 
 

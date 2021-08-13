@@ -7,6 +7,7 @@
 #include <ntddk.h>
 #include <cstdio>
 #include <stddef.h>
+#include<type_traits>
 #pragma warning(pop)
 
 

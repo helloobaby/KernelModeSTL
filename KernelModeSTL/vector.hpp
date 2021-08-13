@@ -128,8 +128,13 @@ namespace std {
 					start++;
 					tmp++;
 				}
-				if(old_start)
-				deallocate((size_t*)old_start - 1);
+				if (old_start) {
+
+					if (std::is_pod<T>::value)
+						deallocate((size_t*)old_start);
+					else
+						deallocate((size_t*)old_start - 1);
+				}
 				start = new_start;
 				finish = tmp;
 				end_of_storage = start + new_size;
@@ -185,7 +190,10 @@ namespace std {
 					start++;
 				}
 				//数据移动完之后记得释放
-				deallocate((size_t*)tmp);
+				if (std::is_pod<T>::value)
+					deallocate((size_t*)tmp);
+				else
+					deallocate((size_t*)tmp - 1);
 			}
 			
 			end_of_storage = new_start + new_size;
@@ -208,7 +216,11 @@ namespace std {
 		*/
 		//delete[] start;
 		destroy<vector<T>>(start, finish);
-		deallocate((size_t*)start);
+		
+		if (std::is_pod<T>::value)
+			deallocate((size_t*)start);
+		else
+			deallocate((size_t*)start - 1);
 	}
 
 }
