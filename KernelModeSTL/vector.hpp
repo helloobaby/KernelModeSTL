@@ -168,7 +168,7 @@ namespace std {
 			construct(finish, x);
 			++finish;
 		}
-		else {
+		else {   
 			
 			const size_type old_size = size();
 			const size_type new_size = (!old_size) ? 1 : old_size * 2;
