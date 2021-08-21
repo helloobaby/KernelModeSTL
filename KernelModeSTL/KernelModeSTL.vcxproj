@@ -162,6 +162,7 @@
   <ItemGroup>
     <ClCompile Include="hashtable.cpp" />
     <ClCompile Include="include\global.cpp" />
+    <ClCompile Include="include\initsect.cpp" />
     <ClCompile Include="list.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="map.cpp" />
@@ -173,6 +174,7 @@
     <ClInclude Include="example.hpp" />
     <ClInclude Include="hashtable.hpp" />
     <ClInclude Include="include\global.hpp" />
+    <ClInclude Include="include\sect_attribs.h" />
     <ClInclude Include="list.hpp" />
     <ClInclude Include="map.hpp" />
     <ClInclude Include="stdafx.h" />

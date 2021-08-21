@@ -12,6 +12,7 @@ extern ULONG memory_free;
 
 extern "C" NTSTATUS DriverEntry(PDRIVER_OBJECT driverObject, PUNICODE_STRING registPath)
 {
+	_CRT_INIT();
 	driverObject->DriverUnload = DriverUnload;
 
 	test();
@@ -31,5 +32,6 @@ extern "C" NTSTATUS DriverEntry(PDRIVER_OBJECT driverObject, PUNICODE_STRING reg
 }
 
 void DriverUnload(PDRIVER_OBJECT driverObject) {
+	_CRT_UNLOAD();
 	Log("Driver Exit\n");
 }

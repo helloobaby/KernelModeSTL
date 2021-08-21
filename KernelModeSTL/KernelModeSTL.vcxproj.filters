@@ -62,6 +62,9 @@
     <ClCompile Include="hashtable.cpp">
       <Filter>hashtable</Filter>
     </ClCompile>
+    <ClCompile Include="include\initsect.cpp">
+      <Filter>Global</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -90,6 +93,9 @@
     </ClInclude>
     <ClInclude Include="hashtable.hpp">
       <Filter>hashtable</Filter>
+    </ClInclude>
+    <ClInclude Include="include\sect_attribs.h">
+      <Filter>Global</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -13,10 +13,13 @@ using std::vector;
 void leetcode58();
 int countCharacters(vector<string>& words, string chars);
 
+vector<int> testVector;
+string strTest("123");
 
 void test()
 {
-	leetcode58();
+	//leetcode58();
+	Log("%s\n", strTest.c_str());
 }
 
 //这里会做测试，然后拿力扣或其他算法网站的题目当例子

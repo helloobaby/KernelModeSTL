@@ -8,8 +8,10 @@
 #include <cstdio>
 #include <stddef.h>
 #include<type_traits>
+#include"sect_attribs.h"
 #pragma warning(pop)
 
+#pragma comment(linker, "/MERGE:.rtc=.rdata")
 
 ULONG Log(const char* format, ...);
 
@@ -45,4 +47,7 @@ inline void destroy(typename T::iterator first, typename T::iterator last)
 		++first;
 	}
 }
+
+void _CRT_INIT();
+void _CRT_UNLOAD();
 

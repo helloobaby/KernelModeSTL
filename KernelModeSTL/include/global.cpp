@@ -5,6 +5,8 @@ ULONG memory_alloc;
 ULONG memory_free;
 #endif // DBG
 
+extern void __cdecl _RTC_Initialize();
+extern void __cdecl _RTC_Terminate();
 
 ULONG Log(const char* format, ...)
 {
@@ -57,6 +59,7 @@ void operator delete(void* p)
 
 void operator delete(void* p, size_t size)
 {
+	size;
 #ifndef DBG
 	if (p)
 		ExFreePoolWithTag(p, 'kstl');
@@ -84,6 +87,7 @@ void operator delete[](void* p)
 
 void operator delete[](void* p,size_t size)
 {
+	size;
 #ifndef DBG
 	if (p)
 		ExFreePoolWithTag(p, 'kstl');
@@ -110,8 +114,15 @@ void deallocate(void* p)
 	}
 }
 
+//DriverEntry call this
+void _CRT_INIT()
+{
+	_RTC_Initialize();
+}
 
-
-
-
+//DriverUnload call this
+void _CRT_UNLOAD()
+{
+	_RTC_Terminate();
+}
 
