@@ -88,7 +88,6 @@ void __declspec(nothrow) __cdecl _RTC_Terminate()
     --*/
     for (auto func : vConstructor)
     {
-        DbgBreakPoint();
         __try {
             if (func)
                 (*func)();
