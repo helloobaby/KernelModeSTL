@@ -12,4 +12,6 @@ new和delete重载为ExAllocatePoolWithQuotaTag，
 
 然后你要用比如vector的话，拷贝vector.hpp和.cpp到你的项目下,#include"vector.hpp"即可
 
+在DriverEntry中你必须保证在使用任何容器前调用_CRT_INIT()，这个函数实质上是调用全局构造来初始化全局类。
+同理，DriverUnload调用_CRT_UNLOAD()，析构所有全局类。
 
