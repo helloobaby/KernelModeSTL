@@ -1,3 +1,7 @@
+/*
+Copyright (c) 2021-x	 https://github.com/helloobaby/KernelModeSTL
+*/
+
 #pragma once 
 #define _NO_CRT_STDIO_INLINE 
 #define _CRT_SECURE_NO_WARNINGS
