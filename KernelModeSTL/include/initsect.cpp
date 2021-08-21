@@ -32,6 +32,10 @@ typedef int(__cdecl* _PIFV)(void);
 #include "sect_attribs.h"
 #include "../vector.hpp"
 
+//https://docs.microsoft.com/en-us/cpp/c-runtime-library/crt-initialization?view=msvc-160
+//https://github.com/helloobaby/Nt5Src-Lite/blob/c0c99e7edefbf14e30b4eb4416026575b2a6c96c/base/crts/crtw32/dllstuff/crtdll.c#L223
+//https://github.com/helloobaby/Nt5Src-Lite/blob/master/base/crts/crtw32/rtc/initsect.cpp
+
 #pragma const_seg(".rtc$IAA")
 extern "C" const _CRTALLOC(".CRT$XCA") _PVFV __rtc_iaa[] = { 0 };
 
