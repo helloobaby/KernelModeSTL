@@ -22,16 +22,16 @@ extern "C" NTSTATUS DriverEntry(PDRIVER_OBJECT driverObject, PUNICODE_STRING reg
 
 
 
+	return STATUS_SUCCESS;
+}
+
+void DriverUnload(PDRIVER_OBJECT driverObject) {
+	_CRT_UNLOAD();
 	//≈–∂œ «∑Ò¥Ê‘⁄memory leak
 	if (memory_free != memory_alloc)
 	{
 		Log("[WARNING]Memory Leaked!\n");
 		Log("%d %d", memory_alloc, memory_free);
 	}
-	return STATUS_SUCCESS;
-}
-
-void DriverUnload(PDRIVER_OBJECT driverObject) {
-	_CRT_UNLOAD();
 	Log("Driver Exit\n");
 }

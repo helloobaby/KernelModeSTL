@@ -4,22 +4,45 @@
 
 #include"string.hpp"
 #include"vector.hpp"
+#include"algorithm.hpp"
 
 
 using std::string;
 using std::wstring;
 using std::vector;
+using std::find;
 
 void leetcode58();
 int countCharacters(vector<string>& words, string chars);
 
-vector<int> testVector;
+struct tagTest
+{
+	tagTest() {}
+	tagTest(const char* a, int b) :str(a), count(b) {}
+	tagTest(int a):count(a),str(nullptr){}
+	string str;
+	int count;
+	bool operator!=(const tagTest& a)
+	{
+		return a.count != this->count;
+	}
+	bool operator!=(const int& a)
+	{
+		return a != this->count;
+	}
+};
+
+vector<tagTest> testVector;
 string strTest("123");
 
 void test()
 {
-	//leetcode58();
-	Log("%s\n", strTest.c_str());
+	testVector.push_back(tagTest("aaa",111));
+	testVector.push_back(tagTest("bbb", 222));
+	testVector.push_back(tagTest("ccc", 333));
+	testVector.push_back(tagTest("ddd", 444));
+	auto it = find(testVector.begin(), testVector.end(), 333);
+	Log("[DEBUG]%s", it->str.c_str());
 }
 
 //这里会做测试，然后拿力扣或其他算法网站的题目当例子
