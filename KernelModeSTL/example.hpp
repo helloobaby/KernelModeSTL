@@ -5,6 +5,7 @@
 #include"string.hpp"
 #include"vector.hpp"
 #include"algorithm.hpp"
+#include"hashtable.hpp"
 
 
 using std::string;

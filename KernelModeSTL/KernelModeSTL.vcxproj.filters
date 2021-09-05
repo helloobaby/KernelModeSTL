@@ -31,8 +31,11 @@
     <Filter Include="map">
       <UniqueIdentifier>{bd551e07-9324-4298-8c44-d339392df893}</UniqueIdentifier>
     </Filter>
-    <Filter Include="hashtable">
+    <Filter Include="hashmap">
       <UniqueIdentifier>{6df19fba-1eeb-431f-ad3f-bc244e6b3a46}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="pair">
+      <UniqueIdentifier>{a40321e5-a27b-4588-98d6-3994dffd3a69}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -60,10 +63,16 @@
       <Filter>map</Filter>
     </ClCompile>
     <ClCompile Include="hashtable.cpp">
-      <Filter>hashtable</Filter>
+      <Filter>hashmap</Filter>
     </ClCompile>
     <ClCompile Include="include\initsect.cpp">
       <Filter>Global</Filter>
+    </ClCompile>
+    <ClCompile Include="hash_map.cpp">
+      <Filter>hashmap</Filter>
+    </ClCompile>
+    <ClCompile Include="pair.cpp">
+      <Filter>pair</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -92,10 +101,16 @@
       <Filter>map</Filter>
     </ClInclude>
     <ClInclude Include="hashtable.hpp">
-      <Filter>hashtable</Filter>
+      <Filter>hashmap</Filter>
     </ClInclude>
     <ClInclude Include="include\sect_attribs.h">
       <Filter>Global</Filter>
+    </ClInclude>
+    <ClInclude Include="hash_map.hpp">
+      <Filter>hashmap</Filter>
+    </ClInclude>
+    <ClInclude Include="pair.hpp">
+      <Filter>pair</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
