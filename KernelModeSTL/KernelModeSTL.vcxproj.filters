@@ -37,6 +37,9 @@
     <Filter Include="pair">
       <UniqueIdentifier>{a40321e5-a27b-4588-98d6-3994dffd3a69}</UniqueIdentifier>
     </Filter>
+    <Filter Include="type_traits">
+      <UniqueIdentifier>{87e25188-bca5-407e-9284-deae3e3f4f16}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Inf Include="KernelModeSTL.inf">
@@ -111,6 +114,9 @@
     </ClInclude>
     <ClInclude Include="pair.hpp">
       <Filter>pair</Filter>
+    </ClInclude>
+    <ClInclude Include="type_traits.hpp">
+      <Filter>type_traits</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

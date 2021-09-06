@@ -183,6 +183,7 @@
     <ClInclude Include="pair.hpp" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="string.hpp" />
+    <ClInclude Include="type_traits.hpp" />
     <ClInclude Include="vector.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
