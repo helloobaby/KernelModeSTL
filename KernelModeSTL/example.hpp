@@ -43,7 +43,7 @@ void test()
 	testVector.push_back(tagTest("ccc", 333));
 	testVector.push_back(tagTest("ddd", 444));
 	auto it = find(testVector.begin(), testVector.end(), 333);
-	Log("[DEBUG]%s", it->str.c_str());
+	Log("[DEBUG]%s\n", it->str.c_str());
 }
 
 //这里会做测试，然后拿力扣或其他算法网站的题目当例子

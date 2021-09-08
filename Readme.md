@@ -20,3 +20,10 @@ new和delete重载为ExAllocatePoolWithQuotaTag，
 同理，DriverUnload调用_CRT_UNLOAD()，析构所有全局类。当然如果你不在乎类的构造和析构的话，可以不调用。
 
 
+例子(Example)：
+
+![Image Text](https://github.com/helloobaby/KernelModeSTL/blob/master/show2.png)
+
+![Image Text](https://github.com/helloobaby/KernelModeSTL/blob/master/show1.png)
+
+
