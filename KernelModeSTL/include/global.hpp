@@ -11,7 +11,7 @@ Copyright (c) 2021-x	 https://github.com/helloobaby/KernelModeSTL
 #include <ntddk.h>
 #include <cstdio>
 #include <stddef.h>
-#include<type_traits>
+#include "../type_traits.hpp"
 #include"sect_attribs.h"
 #pragma warning(pop)
 

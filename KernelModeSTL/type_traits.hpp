@@ -4,39 +4,118 @@ Copyright (c) 2021-x	 https://github.com/helloobaby/KernelModeSTL
 
 
 /*
-
-暂时考虑user mode msvc的trpe_traits std::is_pod<T>
-因为依赖于编译器并且是编译期的事情，在用户层和内核层并没有什么区别
-
-如果内核中使用出现问题，那么采用本文件中的type_traits
-
+	std::is_pod好像在c++20要被弃用
 */
-namespace trial
+namespace std
 {
-
+	/*
+	* 这个虽然能用，但是不满足c++标准用法
 	template <typename T>
 	constexpr bool is_pod()
 	{
 		return is_pod_type<T>::value;
 	}
+	*/
+
+
+	template <typename T>
+	struct is_pod
+	{
+		static const bool value = is_pod_type<T>::value;
+		constexpr bool operator()()
+		{
+			return value;
+		}
+	};
 
 	template <typename T>
 	struct is_pod_type
 	{
-		bool value = false;
+		static const bool value = false;
 	};
 
 	//
-	// 要对所有POD类型全特化，后面的先暂时不写
+	// 要对c++所有POD类型全特化
 	//
+
+
+	template <>
+	struct is_pod_type<char>
+	{
+		static const bool value = true;
+	};
+
+	template <>
+	struct is_pod_type<signed char>
+	{
+		static const bool value = true;
+	};
+
+	template <>
+	struct is_pod_type<unsigned char>
+	{
+		static const bool value = true;
+	};
+
+	template <>
+	struct is_pod_type<short>
+	{
+		static const bool value = true;
+	};
+
+	template <>
+	struct is_pod_type<unsigned short>
+	{
+		static const bool value = true;
+	};
+
 	template <>
 	struct is_pod_type<int>
 	{
-		bool value = true;
+		static const bool value = true;
+	};
+
+	template <>
+	struct is_pod_type<unsigned int>
+	{
+		static const bool value = true;
 	};
 
 
+	template <>
+	struct is_pod_type<long>
+	{
+		static const bool value = true;
+	};
 
+	template <>
+	struct is_pod_type<unsigned long>
+	{
+		static const bool value = true;
+	};
 
+	template <>
+	struct is_pod_type<float>
+	{
+		static const bool value = true;
+	};
+
+	template <>
+	struct is_pod_type<double>
+	{
+		static const bool value = true;
+	};
+
+	template <>
+	struct is_pod_type<long double>
+	{
+		static const bool value = true;
+	};
+
+	template<typename T>
+	struct is_pod_type<T*>
+	{
+		static const bool value = true;
+	};
 
 }
