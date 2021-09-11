@@ -8,10 +8,7 @@ new和delete重载为ExAllocatePoolWithQuotaTag，
 
 使用方法：
 
-1.将include文件夹拷贝到你的项目下(作为重载new和delete，还有全局construct和destroy）,
-
-2.然后你要用比如vector的话，拷贝vector.hpp和vector.cpp到你的项目下,#include"vector.hpp"即可
-
+将include文件夹拷贝到你的项目下
 
 注意:
 
