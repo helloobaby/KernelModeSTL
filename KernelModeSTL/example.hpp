@@ -1,11 +1,11 @@
 #pragma once
 
-#include"include/global.hpp"
+#include"./include/global.hpp"
 
-#include"string.hpp"
-#include"vector.hpp"
-#include"algorithm.hpp"
-#include"hashtable.hpp"
+#include"./include/string.hpp"
+#include"./include/vector.hpp"
+#include"./include/algorithm.hpp"
+#include"./include/hashtable.hpp"
 
 
 using std::string;

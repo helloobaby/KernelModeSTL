@@ -50,73 +50,61 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="string.cpp">
-      <Filter>string</Filter>
-    </ClCompile>
     <ClCompile Include="include\global.cpp">
       <Filter>Global</Filter>
-    </ClCompile>
-    <ClCompile Include="vector.cpp">
-      <Filter>vector</Filter>
-    </ClCompile>
-    <ClCompile Include="list.cpp">
-      <Filter>list</Filter>
-    </ClCompile>
-    <ClCompile Include="map.cpp">
-      <Filter>map</Filter>
-    </ClCompile>
-    <ClCompile Include="hashtable.cpp">
-      <Filter>hashmap</Filter>
     </ClCompile>
     <ClCompile Include="include\initsect.cpp">
       <Filter>Global</Filter>
     </ClCompile>
-    <ClCompile Include="hash_map.cpp">
+    <ClCompile Include="include\string.cpp">
+      <Filter>string</Filter>
+    </ClCompile>
+    <ClCompile Include="include\vector.cpp">
+      <Filter>vector</Filter>
+    </ClCompile>
+    <ClCompile Include="include\list.cpp">
+      <Filter>list</Filter>
+    </ClCompile>
+    <ClCompile Include="include\hash_map.cpp">
       <Filter>hashmap</Filter>
     </ClCompile>
-    <ClCompile Include="pair.cpp">
-      <Filter>pair</Filter>
+    <ClCompile Include="include\hashtable.cpp">
+      <Filter>hashmap</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="stdafx.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="string.hpp">
-      <Filter>string</Filter>
-    </ClInclude>
     <ClInclude Include="include\global.hpp">
       <Filter>Global</Filter>
-    </ClInclude>
-    <ClInclude Include="vector.hpp">
-      <Filter>vector</Filter>
     </ClInclude>
     <ClInclude Include="example.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="algorithm.hpp">
-      <Filter>algorithm</Filter>
-    </ClInclude>
-    <ClInclude Include="list.hpp">
-      <Filter>list</Filter>
-    </ClInclude>
-    <ClInclude Include="map.hpp">
-      <Filter>map</Filter>
-    </ClInclude>
-    <ClInclude Include="hashtable.hpp">
-      <Filter>hashmap</Filter>
-    </ClInclude>
     <ClInclude Include="include\sect_attribs.h">
       <Filter>Global</Filter>
     </ClInclude>
-    <ClInclude Include="hash_map.hpp">
+    <ClInclude Include="include\string.hpp">
+      <Filter>string</Filter>
+    </ClInclude>
+    <ClInclude Include="include\type_traits.hpp">
+      <Filter>type_traits</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vector.hpp">
+      <Filter>vector</Filter>
+    </ClInclude>
+    <ClInclude Include="include\algorithm.hpp">
+      <Filter>algorithm</Filter>
+    </ClInclude>
+    <ClInclude Include="include\list.hpp">
+      <Filter>list</Filter>
+    </ClInclude>
+    <ClInclude Include="include\stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\hash_map.hpp">
       <Filter>hashmap</Filter>
     </ClInclude>
-    <ClInclude Include="pair.hpp">
-      <Filter>pair</Filter>
-    </ClInclude>
-    <ClInclude Include="type_traits.hpp">
-      <Filter>type_traits</Filter>
+    <ClInclude Include="include\hashtable.hpp">
+      <Filter>hashmap</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

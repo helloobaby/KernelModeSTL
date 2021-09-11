@@ -30,7 +30,7 @@ typedef void(__cdecl* _PVFV)(void);
 typedef int(__cdecl* _PIFV)(void);
 
 #include "sect_attribs.h"
-#include "../vector.hpp"
+#include "vector.hpp"
 
 //https://docs.microsoft.com/en-us/cpp/c-runtime-library/crt-initialization?view=msvc-160
 //https://github.com/helloobaby/Nt5Src-Lite/blob/c0c99e7edefbf14e30b4eb4416026575b2a6c96c/base/crts/crtw32/dllstuff/crtdll.c#L223

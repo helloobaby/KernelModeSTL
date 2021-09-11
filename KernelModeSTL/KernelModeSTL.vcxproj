@@ -160,31 +160,27 @@
     <FilesToPackage Include="$(TargetPath)" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="hashtable.cpp" />
-    <ClCompile Include="hash_map.cpp" />
     <ClCompile Include="include\global.cpp" />
+    <ClCompile Include="include\hashtable.cpp" />
+    <ClCompile Include="include\hash_map.cpp" />
     <ClCompile Include="include\initsect.cpp" />
-    <ClCompile Include="list.cpp" />
+    <ClCompile Include="include\list.cpp" />
+    <ClCompile Include="include\string.cpp" />
+    <ClCompile Include="include\vector.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="map.cpp" />
-    <ClCompile Include="pair.cpp" />
-    <ClCompile Include="string.cpp" />
-    <ClCompile Include="vector.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="algorithm.hpp" />
     <ClInclude Include="example.hpp" />
-    <ClInclude Include="hashtable.hpp" />
-    <ClInclude Include="hash_map.hpp" />
+    <ClInclude Include="include\algorithm.hpp" />
     <ClInclude Include="include\global.hpp" />
+    <ClInclude Include="include\hashtable.hpp" />
+    <ClInclude Include="include\hash_map.hpp" />
+    <ClInclude Include="include\list.hpp" />
     <ClInclude Include="include\sect_attribs.h" />
-    <ClInclude Include="list.hpp" />
-    <ClInclude Include="map.hpp" />
-    <ClInclude Include="pair.hpp" />
-    <ClInclude Include="stdafx.h" />
-    <ClInclude Include="string.hpp" />
-    <ClInclude Include="type_traits.hpp" />
-    <ClInclude Include="vector.hpp" />
+    <ClInclude Include="include\stdafx.h" />
+    <ClInclude Include="include\string.hpp" />
+    <ClInclude Include="include\type_traits.hpp" />
+    <ClInclude Include="include\vector.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
