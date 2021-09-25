@@ -28,14 +28,8 @@
     <Filter Include="list">
       <UniqueIdentifier>{51293e63-318e-48c6-b28a-809822e65358}</UniqueIdentifier>
     </Filter>
-    <Filter Include="map">
-      <UniqueIdentifier>{bd551e07-9324-4298-8c44-d339392df893}</UniqueIdentifier>
-    </Filter>
     <Filter Include="hashmap">
       <UniqueIdentifier>{6df19fba-1eeb-431f-ad3f-bc244e6b3a46}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="pair">
-      <UniqueIdentifier>{a40321e5-a27b-4588-98d6-3994dffd3a69}</UniqueIdentifier>
     </Filter>
     <Filter Include="type_traits">
       <UniqueIdentifier>{87e25188-bca5-407e-9284-deae3e3f4f16}</UniqueIdentifier>

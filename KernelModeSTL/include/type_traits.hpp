@@ -118,4 +118,25 @@ namespace std
 		static const bool value = true;
 	};
 
+	//
+	//https://en.cppreference.com/w/cpp/utility/hash
+	//
+	template<typename _Kty>
+	struct hash
+	{
+		hash() = delete;
+	};
+
+	/**
+	* 对POD类型要全特化，并合理设计hash function
+	*/
+	template<>
+	struct hash<int>
+	{
+		hash() {}
+	};
+
+
+
+
 }

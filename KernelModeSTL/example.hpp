@@ -12,6 +12,7 @@ using std::string;
 using std::wstring;
 using std::vector;
 using std::find;
+using std::hash;
 
 void leetcode58();
 int countCharacters(vector<string>& words, string chars);
@@ -38,12 +39,18 @@ string strTest("123");
 
 void test()
 {
+
+#if 0
 	testVector.push_back(tagTest("aaa",111));
 	testVector.push_back(tagTest("bbb", 222));
 	testVector.push_back(tagTest("ccc", 333));
 	testVector.push_back(tagTest("ddd", 444));
 	auto it = find(testVector.begin(), testVector.end(), 333);
 	Log("[DEBUG]%s\n", it->str.c_str());
+#endif
+
+	hash<int> a;
+
 }
 
 //这里会做测试，然后拿力扣或其他算法网站的题目当例子
