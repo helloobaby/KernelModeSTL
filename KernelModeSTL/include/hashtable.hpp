@@ -8,8 +8,22 @@ Copyright (c) 2021-x	 https://github.com/helloobaby/KernelModeSTL
 
 using std::vector;
 
+
 namespace std
 {
+	inline int prime_list_size = 20;
+	inline unsigned long prime_list[]
+	{
+		/**
+		* table size一般是要为质数的
+		* 防止极端情况比如 60 % table size 、80 % table size 、 100 % table size
+		* 都会得到index为0这种情况
+		*/
+		53,97,193,389,769,
+		1543,3079,6151,12289,24593,
+		49157,98317,196613,393241,786433,
+		1572869,3145739,6291469,12582917,25165843
+	};
 
 	template <typename value>
 	struct _hashtable_node
@@ -30,14 +44,33 @@ namespace std
 		using size_type = size_t;
 
 	private:
-		//如果buckets太少，会导致挂接链表太长，java中jdk会把这种情况转化为红黑树
+		/**
+		* 
+		* 
+		* buckets[0]
+		*		 [1]
+		*		 [2]
+		*		 [3]
+		*		 ...
+		*		 ...
+		*		 ...
+		*		 ...
+		*		 ...
+		* buckets.size()
+		*/		 
 		vector<node*> buckets;
 	public:
 		void initialize_buckets(size_type n)
 		{
 			auto next_size = [n]() {
 				//返回大于n的最大质数
+				for (auto prime : prime_list)
+				{
+					if (prime > n)
+						return prime;
+				}
 			};
+			buckets.resize(next_size());
 		}
 
 		hashtable(size_type n)
@@ -45,6 +78,15 @@ namespace std
 			buckets.resize(0);
 		}
 		
+		//
+		//表示最大支持的buckets是多少
+		//目前是25165843
+		//
+		unsigned long max_buckets()
+		{
+			return prime_list[prime_list_size - 1];
+		}
+
 	};
 
 }

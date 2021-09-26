@@ -100,5 +100,8 @@
     <ClInclude Include="include\hashtable.hpp">
       <Filter>hashmap</Filter>
     </ClInclude>
+    <ClInclude Include="functional.hpp">
+      <Filter>algorithm</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -171,6 +171,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="example.hpp" />
+    <ClInclude Include="functional.hpp" />
     <ClInclude Include="include\algorithm.hpp" />
     <ClInclude Include="include\global.hpp" />
     <ClInclude Include="include\hashtable.hpp" />

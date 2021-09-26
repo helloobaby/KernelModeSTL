@@ -1,3 +1,4 @@
+#pragma once
 #include"include/global.hpp"
 
 namespace std
