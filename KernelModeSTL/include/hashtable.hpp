@@ -35,11 +35,10 @@ namespace std
 	};
 
 	template<class value,
-		class key,
-		class HashFcn >//应该提供默认的hash函数
-		class hashtable
+			class key,
+			class HashFcn>//应该提供默认的hash函数
+	class hashtable
 	{
-
 		using node = _hashtable_node<value>;
 		using size_type = size_t;
 
