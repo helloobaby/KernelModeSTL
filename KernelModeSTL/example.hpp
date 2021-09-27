@@ -49,7 +49,6 @@ void test()
 	Log("[DEBUG]%s\n", it->str.c_str());
 #endif
 
-	Log("%llx",hash<const char*>()("123"));
 
 }
 

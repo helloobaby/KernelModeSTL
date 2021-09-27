@@ -134,7 +134,9 @@ namespace std
 	inline constexpr size_t _FNV_offset_basis = 2166136261U;
 	inline constexpr size_t _FNV_prime = 16777619U;
 
-
+	//
+	//https://github.com/microsoft/STL
+	//
 	inline size_t _Fnv1a_append_bytes(size_t _Val, const unsigned char* const _First,
 		const size_t _Count) noexcept { // accumulate range [_First, _First + _Count) into partial FNV-1a hash _Val
 		for (size_t _Idx = 0; _Idx < _Count; ++_Idx) {
@@ -155,15 +157,10 @@ namespace std
 		return _Fnv1a_append_value(_FNV_offset_basis, _Keyval);
 	}
 
-
-	template<>
-	struct hash<int>
-	{
-		size_t operator()(const int _Keyval)const noexcept {
-			return _Hash_representation(_Keyval == 0 ? 0 : _Keyval); // map -0 to 0
-		}
-	};
-
+	/**
+	* 模板特化对类型严格匹配
+	* 精确到每一个const和unsigned等修饰符
+	*/
 	template<>
 	struct hash<const char*> 
 	{
@@ -178,6 +175,94 @@ namespace std
 		return hash % 32767;//最好对一个大的素数取余
 		}
 	};
+
+	template<>
+	struct hash<char*>
+	{
+		size_t operator()(const char* str)const noexcept {
+
+			static unsigned int seed = 131313;//也可以乘以31、131、1313、13131、131313..
+			static unsigned int hash = 0;
+			while (*str)
+			{
+				hash = hash * seed + (*str++);
+			}
+			return hash % 32767;//最好对一个大的素数取余
+		}
+	};
+
+	template<>
+	struct hash<int>
+	{
+		size_t operator()(int _Keyval)const noexcept {
+			return _Hash_representation(_Keyval == 0 ? 0 : _Keyval); // map -0 to 0
+		}
+	};
+
+	template<>
+	struct hash<unsigned int>
+	{
+		size_t operator()(unsigned int _Keyval)const noexcept {
+			return _Hash_representation(_Keyval == 0 ? 0 : _Keyval); // map -0 to 0
+		}
+	};
+
+	template<>
+	struct hash<long>
+	{
+		size_t operator()(long _Keyval)const noexcept {
+			return _Hash_representation(_Keyval == 0 ? 0 : _Keyval); // map -0 to 0
+		}
+	};
+
+	template<>
+	struct hash<unsigned long>
+	{
+		size_t operator()(unsigned long _Keyval)const noexcept {
+			return _Hash_representation(_Keyval == 0 ? 0 : _Keyval); // map -0 to 0
+		}
+	};
+
+	template<>
+	struct hash<char>
+	{
+		size_t operator()(char _Keyval)const noexcept {
+			return _Hash_representation(_Keyval == 0 ? 0 : _Keyval); // map -0 to 0
+		}
+	};
+
+	template<>
+	struct hash<unsigned char>
+	{
+		size_t operator()(unsigned char _Keyval)const noexcept {
+			return _Hash_representation(_Keyval == 0 ? 0 : _Keyval); // map -0 to 0
+		}
+	};
+
+	template<>
+	struct hash<signed char>
+	{
+		size_t operator()(signed char _Keyval)const noexcept {
+			return _Hash_representation(_Keyval == 0 ? 0 : _Keyval); // map -0 to 0
+		}
+	};
+
+	template<>
+	struct hash<short>
+	{
+		size_t operator()(short _Keyval)const noexcept {
+			return _Hash_representation(_Keyval == 0 ? 0 : _Keyval); // map -0 to 0
+		}
+	};
+
+	template<>
+	struct hash<unsigned short>
+	{
+		size_t operator()(unsigned short _Keyval)const noexcept {
+			return _Hash_representation(_Keyval == 0 ? 0 : _Keyval); // map -0 to 0
+		}
+	};
+
 
 
 }
