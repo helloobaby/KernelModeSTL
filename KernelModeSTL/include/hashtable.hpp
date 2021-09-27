@@ -72,7 +72,7 @@ namespace std
 		//
 		void initialize_buckets(size_type n)
 		{
-
+#pragma warning(disable: 4715)
 			auto next_size = [n]() {
 				//返回大于n的最大质数
 				for (auto prime : prime_list)
@@ -81,7 +81,6 @@ namespace std
 						return prime;
 				}
 			};
-
 			buckets.resize(next_size());
 		}
 

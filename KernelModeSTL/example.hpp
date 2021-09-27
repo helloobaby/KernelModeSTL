@@ -16,7 +16,7 @@ using std::hash;
 using std::hashtable;
 
 void leetcode58();
-int countCharacters(vector<string>& words, string chars);
+size_t countCharacters(vector<string>& words, string chars);
 
 struct tagTest
 {
@@ -41,7 +41,7 @@ string strTest("123");
 void test()
 {
 
-#if 1
+#if 0
 	testVector.push_back(tagTest("aaa",111));
 	testVector.push_back(tagTest("bbb", 222));
 	testVector.push_back(tagTest("ccc", 333));
@@ -57,12 +57,12 @@ void test()
 	Log("%llx\n", hash<long>()(5));
 	Log("%llx\n", hash<int>()(5));
 #endif
-#if 0
+#if 1
 
 	hashtable<int, int> a;
-	a.initialize_buckets(4);
+	a.initialize_buckets(55);
 	//Log("%x\n", a.max_buckets());
-	//Log("%x\n", a.buckets.capacity());
+	Log("%x\n", a.buckets.capacity());
 
 #endif
 }
@@ -83,9 +83,10 @@ void leetcode58() {
 	a.push_back("tree");
 	Log("%d", countCharacters(a, "atach"));
 }
-int countCharacters(vector<string>& words, string chars) {
+size_t countCharacters(vector<string>& words, string chars) {
 
-	int lenth = 0;
+	UNREFERENCED_PARAMETER(words);
+	size_t lenth = 0;
 	for (auto it1 = words.begin(); it1 != words.end(); it1++) {
 
 		int current = 0;

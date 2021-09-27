@@ -10,6 +10,10 @@ extern void __cdecl _RTC_Terminate();
 
 ULONG Log(const char* format, ...)
 {
+#ifndef DBG
+	return 0;
+#endif // DBG
+
 	char buffer[256];
 
 	va_list ap;
@@ -21,11 +25,7 @@ ULONG Log(const char* format, ...)
 
 void* operator new(size_t size)
 {
-#ifndef DBG
-	return ExAllocatePoolWithQuotaTag(NonPagedPool, size, 'ltsk');
-#endif // !1
 	void* p = ExAllocatePoolWithQuotaTag(NonPagedPool, size, 'ltsk');
-
 #ifdef DBG
 	memory_alloc++;
 #endif // DBG
@@ -35,9 +35,6 @@ void* operator new(size_t size)
 
 void* operator new[](size_t size)
 {
-#ifndef DBG
-	return ExAllocatePoolWithQuotaTag(NonPagedPool, size, 'ltsk');
-#endif // !1
 	void* p = ExAllocatePoolWithQuotaTag(NonPagedPool, size, 'ltsk');
 
 #ifdef DBG
@@ -54,11 +51,6 @@ void* operator new(size_t, void* _Where)
 
 void operator delete(void* p)
 {
-#ifndef DBG
-	if (p)
-		ExFreePoolWithTag(p, 'kstl');
-#endif // !DBG
-	
 	if (p) {
 #ifdef DBG
 		memory_free++;
@@ -71,11 +63,6 @@ void operator delete(void* p)
 void operator delete(void* p, size_t size)
 {
 	size;
-#ifndef DBG
-	if (p)
-		ExFreePoolWithTag(p, 'kstl');
-#endif // !DBG
-
 	if (p) {
 #ifdef DBG
 		memory_free++;
@@ -85,11 +72,6 @@ void operator delete(void* p, size_t size)
 
 void operator delete[](void* p)
 {
-#ifndef DBG
-	if (p)
-		ExFreePoolWithTag(p, 'kstl');
-#endif // !DBG
-
 	if (p) {	//operator new[] 会用分配的前(size_t)个字节来保存new[]对象的个数
 				//编译器在传给void * p的时候会自动帮我们-size_t
 #ifdef DBG
@@ -102,12 +84,7 @@ void operator delete[](void* p)
 
 void operator delete[](void* p,size_t size)
 {
-	size;
-#ifndef DBG
-	if (p)
-		ExFreePoolWithTag(p, 'kstl');
-#endif // !DBG
-
+	UNREFERENCED_PARAMETER(size);
 	if (p) {
 #ifdef DBG
 		memory_free++;
@@ -119,12 +96,6 @@ void operator delete[](void* p,size_t size)
 
 void deallocate(void* p)
 {
-	//这个全局函数存在的意义仅仅是释放内存，而不调用析构函数
-#ifndef DBG
-	if (p)
-		ExFreePoolWithTag(p, 'kstl');
-#endif // !DBG
-
 	if (p) {
 #ifdef DBG
 		memory_free++;

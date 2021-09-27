@@ -15,6 +15,9 @@ extern ULONG memory_free;
 
 extern "C" NTSTATUS DriverEntry(PDRIVER_OBJECT driverObject, PUNICODE_STRING registPath)
 {
+	UNREFERENCED_PARAMETER(registPath);
+	UNREFERENCED_PARAMETER(driverObject);
+
 	_CRT_INIT();
 	driverObject->DriverUnload = DriverUnload;
 
@@ -29,6 +32,7 @@ extern "C" NTSTATUS DriverEntry(PDRIVER_OBJECT driverObject, PUNICODE_STRING reg
 }
 
 void DriverUnload(PDRIVER_OBJECT driverObject) {
+	UNREFERENCED_PARAMETER(driverObject);
 	_CRT_UNLOAD();
 	//≈–∂œ «∑Ò¥Ê‘⁄memory leak
 

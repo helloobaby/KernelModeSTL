@@ -1,4 +1,4 @@
-/*
+﻿/*
 Copyright (c) 2021-x	 https://github.com/helloobaby/KernelModeSTL
 */
 
@@ -184,6 +184,7 @@ namespace std {
 	template<typename T>
 	void vector<T>::insert_aux(vector<T>::iterator position, const T& x)
 	{
+		UNREFERENCED_PARAMETER(position);
 		if (finish < end_of_storage)
 		{
 			construct(finish, x);
