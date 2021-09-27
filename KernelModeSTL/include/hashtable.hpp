@@ -25,24 +25,26 @@ namespace std
 		1572869,3145739,6291469,12582917,25165843
 	};
 
-	template <typename value>
+	template <typename key,typename value>
 	struct _hashtable_node
 	{
 		//因为只有下一个节点的指针
 		//以此封装的迭代器只支持前进操作，不支持后退，也没有逆向迭代器
 		_hashtable_node* next;
+		key k;
 		value val;
+		
 	};
 
-	template<class value,
-			class key,
-			class HashFcn>//应该提供默认的hash函数
+	template<class key,
+			class value,
+			class HashFcn = std::hash<key>>//应该提供默认的hash函数
 	class hashtable
 	{
-		using node = _hashtable_node<value>;
+		using node = _hashtable_node<key,value>;
 		using size_type = size_t;
 
-	private:
+		private:
 		/**
 		* 
 		* 
@@ -57,10 +59,20 @@ namespace std
 		*		 ...
 		* buckets.size()
 		*/		 
+#ifndef DBG
 		vector<node*> buckets;
-	public:
+#endif // !DBG
+		public:
+#ifdef DBG
+		vector<node*> buckets;
+#endif // DEBUG
+
+		//
+		//决定buckets的大小
+		//
 		void initialize_buckets(size_type n)
 		{
+
 			auto next_size = [n]() {
 				//返回大于n的最大质数
 				for (auto prime : prime_list)
@@ -69,17 +81,21 @@ namespace std
 						return prime;
 				}
 			};
+
 			buckets.resize(next_size());
 		}
 
-		hashtable(size_type n)
+		//
+		//默认构造函数
+		//
+		hashtable()
 		{
-			buckets.resize(0);
+			;
 		}
-		
+
 		//
 		//表示最大支持的buckets是多少
-		//目前是25165843
+		//目前是25165843(0x1800013)
 		//
 		unsigned long max_buckets()
 		{

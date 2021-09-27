@@ -25,7 +25,11 @@ void* operator new(size_t size)
 	return ExAllocatePoolWithQuotaTag(NonPagedPool, size, 'ltsk');
 #endif // !1
 	void* p = ExAllocatePoolWithQuotaTag(NonPagedPool, size, 'ltsk');
+
+#ifdef DBG
 	memory_alloc++;
+#endif // DBG
+
 	return p;
 }
 
@@ -35,7 +39,11 @@ void* operator new[](size_t size)
 	return ExAllocatePoolWithQuotaTag(NonPagedPool, size, 'ltsk');
 #endif // !1
 	void* p = ExAllocatePoolWithQuotaTag(NonPagedPool, size, 'ltsk');
+
+#ifdef DBG
 	memory_alloc++;
+#endif // DBG
+
 	return p;
 }
 
@@ -52,7 +60,10 @@ void operator delete(void* p)
 #endif // !DBG
 	
 	if (p) {
+#ifdef DBG
 		memory_free++;
+#endif // DBG
+
 		ExFreePoolWithTag(p, 'kstl');
 	}
 }
@@ -66,7 +77,9 @@ void operator delete(void* p, size_t size)
 #endif // !DBG
 
 	if (p) {
+#ifdef DBG
 		memory_free++;
+#endif // DBG
 		ExFreePoolWithTag(p, 'kstl');	}
 }
 
@@ -79,8 +92,10 @@ void operator delete[](void* p)
 
 	if (p) {	//operator new[] 会用分配的前(size_t)个字节来保存new[]对象的个数
 				//编译器在传给void * p的时候会自动帮我们-size_t
+#ifdef DBG
 		memory_free++;
-		ExFreePoolWithTag((void*)((ULONG_PTR)p), 'kstl');
+#endif // DBG
+		ExFreePoolWithTag(p, 'kstl');
 	}
 	
 }
@@ -94,7 +109,9 @@ void operator delete[](void* p,size_t size)
 #endif // !DBG
 
 	if (p) {
+#ifdef DBG
 		memory_free++;
+#endif // DBG
 		ExFreePoolWithTag(p, 'kstl');
 	}
 	
@@ -109,7 +126,9 @@ void deallocate(void* p)
 #endif // !DBG
 
 	if (p) {
+#ifdef DBG
 		memory_free++;
+#endif // DBG
 		ExFreePoolWithTag(p, 'kstl');
 	}
 }

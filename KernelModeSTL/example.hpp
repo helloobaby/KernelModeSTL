@@ -13,6 +13,7 @@ using std::wstring;
 using std::vector;
 using std::find;
 using std::hash;
+using std::hashtable;
 
 void leetcode58();
 int countCharacters(vector<string>& words, string chars);
@@ -40,16 +41,30 @@ string strTest("123");
 void test()
 {
 
-#if 0
+#if 1
 	testVector.push_back(tagTest("aaa",111));
 	testVector.push_back(tagTest("bbb", 222));
 	testVector.push_back(tagTest("ccc", 333));
 	testVector.push_back(tagTest("ddd", 444));
 	auto it = find(testVector.begin(), testVector.end(), 333);
-	Log("[DEBUG]%s\n", it->str.c_str());
+	Log("%d",testVector.size());
 #endif
 
+#if 0
+	Log("%llx\n",hash<const char*>()("123"));
+	Log("%llx\n", hash<char*>()("123"));
+	Log("%llx\n", hash<short>()(5));
+	Log("%llx\n", hash<long>()(5));
+	Log("%llx\n", hash<int>()(5));
+#endif
+#if 0
 
+	hashtable<int, int> a;
+	a.initialize_buckets(4);
+	//Log("%x\n", a.max_buckets());
+	//Log("%x\n", a.buckets.capacity());
+
+#endif
 }
 
 //这里会做测试，然后拿力扣或其他算法网站的题目当例子

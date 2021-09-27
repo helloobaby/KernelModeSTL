@@ -102,7 +102,16 @@ namespace std {
 			}
 			finish = first;
 		}
-		void capacity()const { return size_type(end() - begin()); }
+		size_t capacity()const 
+		{
+#if 0
+			DbgBreakPoint();
+#endif
+			//
+			//两个指针相减，编译器会自动用地址差值/对象大小，获得准确的对象数量
+			//
+			return size_type(end_of_storage - start); 
+		}
 		reference operator[](size_type n) { return *(begin() + n); }
 		
 		/*
@@ -114,6 +123,9 @@ namespace std {
 		*/
 		void resize(size_type new_size)
 		{
+#if 0
+			DbgBreakPoint();
+#endif
 			if (new_size < size()) {
 				destroy<vector<T>>(begin() + new_size, finish);
 				finish = begin() + new_size;
