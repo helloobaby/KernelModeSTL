@@ -34,6 +34,9 @@
     <Filter Include="type_traits">
       <UniqueIdentifier>{87e25188-bca5-407e-9284-deae3e3f4f16}</UniqueIdentifier>
     </Filter>
+    <Filter Include="utility">
+      <UniqueIdentifier>{9068f095-9f70-40a9-ae27-d7f4ce5f7739}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Inf Include="KernelModeSTL.inf">
@@ -64,6 +67,9 @@
     </ClCompile>
     <ClCompile Include="include\hashtable.cpp">
       <Filter>hashmap</Filter>
+    </ClCompile>
+    <ClCompile Include="utility.cpp">
+      <Filter>utility</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -102,6 +108,9 @@
     </ClInclude>
     <ClInclude Include="functional.hpp">
       <Filter>algorithm</Filter>
+    </ClInclude>
+    <ClInclude Include="utility.hpp">
+      <Filter>utility</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

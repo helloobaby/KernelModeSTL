@@ -59,10 +59,10 @@ void test()
 #endif
 #if 1
 
-	hashtable<int, int> a;
-	a.initialize_buckets(55);
+	hashtable<const char*, const char*> a;
 	//Log("%x\n", a.max_buckets());
-	Log("%x\n", a.buckets.capacity());
+	//Log("%x\n", a.bkt_num(5));
+	a.insert("123", "456");
 
 #endif
 }

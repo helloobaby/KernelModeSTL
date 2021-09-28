@@ -36,6 +36,23 @@ namespace std
 		
 	};
 
+
+	template<typename key, typename value, typename HashFcn>
+	struct __hashtable_iterator
+	{
+		using reference = value&;
+		using pointer = value*;
+		using node = _hashtable_node<key, value>;
+
+		node* cur;
+
+		__hashtable_iterator(node* n) { cur = n; }
+		
+		reference operator*()const { return cur->val; }
+
+
+	};
+
 	template<class key,
 			class value,
 			class HashFcn = std::hash<key>>//应该提供默认的hash函数
@@ -43,6 +60,7 @@ namespace std
 	{
 		using node = _hashtable_node<key,value>;
 		using size_type = size_t;
+		using iterator = __hashtable_iterator<key, value,HashFcn>;
 
 		private:
 		/**
@@ -59,12 +77,17 @@ namespace std
 		*		 ...
 		* buckets.size()
 		*/		 
-#ifndef DBG
+#ifndef DBG //Release编译的时候都是private的
 		vector<node*> buckets;
+		size_type num_elements;
 #endif // !DBG
-		public:
+		public: // DEBUG编译ide时候都是public的，方便输出
 #ifdef DBG
 		vector<node*> buckets;
+		//
+		//这个干嘛用的？
+		//
+		size_type num_elements;
 #endif // DEBUG
 
 		//
@@ -82,6 +105,19 @@ namespace std
 				}
 			};
 			buckets.resize(next_size());
+			//
+			//对vector中的node初始化为nullptr
+			//这里foreach用不了，因为此时vector内还没有东西，要从begin到end而不是finish
+			// 
+			//
+#if 0
+			for (auto& node : buckets)
+			{
+				node = nullptr;
+			}
+#endif		
+			
+			num_elements = 0;
 		}
 
 		//
@@ -89,7 +125,11 @@ namespace std
 		//
 		hashtable()
 		{
-			;
+			//
+			//初始化53个node，太小导致哈希冲突严重
+			//太大导致内存浪费严重，后期看情况改一改
+			//
+			initialize_buckets(0);
 		}
 
 		//
@@ -101,6 +141,68 @@ namespace std
 			return prime_list[prime_list_size - 1];
 		}
 
+		//
+		//bkt_num确定某个obj该放哪个位置,返回下标(索引)
+		//
+		size_t bkt_num(key obj)
+		{
+#if 0
+			DbgBreakPoint();
+			Log("%x\n", buckets.size());
+#endif
+			return HashFcn()(obj) % buckets.capacity();
+		}
+
+		//
+		//向hashtable中插入数据
+		//
+		iterator insert(key k, value val)
+		{
+			//
+			//算出这个数据落地点
+			//
+			const size_type n = bkt_num(k);
+#if 1
+			Log("bkt_num return %x\n", n);
+#endif
+			node* first = buckets[n];
+			DbgBreakPoint();
+			if (!first)
+			{
+				//
+				//落地点为空，直接写value
+				//
+				first = new node;
+#if 1
+				Log("node at %p\n", first);
+#endif
+				first->val = val;
+				first->k = k;
+			}
+			else
+			{
+				//
+				//哈希冲突了。遍历链表，找到后面的空的再加一个节点，如果值重复了就直接返回
+				//
+			}
+
+			return first;
+		}
+
 	};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }

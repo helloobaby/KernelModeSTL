@@ -8,6 +8,8 @@ ULONG memory_free;
 extern void __cdecl _RTC_Initialize();
 extern void __cdecl _RTC_Terminate();
 
+/*
+*/
 ULONG Log(const char* format, ...)
 {
 #ifndef DBG
@@ -26,6 +28,7 @@ ULONG Log(const char* format, ...)
 void* operator new(size_t size)
 {
 	void* p = ExAllocatePoolWithQuotaTag(NonPagedPool, size, 'ltsk');
+	memset(p, 0, size);
 #ifdef DBG
 	memory_alloc++;
 #endif // DBG
@@ -36,7 +39,7 @@ void* operator new(size_t size)
 void* operator new[](size_t size)
 {
 	void* p = ExAllocatePoolWithQuotaTag(NonPagedPool, size, 'ltsk');
-
+	memset(p, 0, size);
 #ifdef DBG
 	memory_alloc++;
 #endif // DBG
