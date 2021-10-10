@@ -161,30 +161,36 @@
     <FilesToPackage Include="$(TargetPath)" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="include\AVLTree.cpp" />
+    <ClCompile Include="include\BSTree.cpp" />
     <ClCompile Include="include\global.cpp" />
     <ClCompile Include="include\hashtable.cpp" />
     <ClCompile Include="include\hash_map.cpp" />
     <ClCompile Include="include\initsect.cpp" />
     <ClCompile Include="include\list.cpp" />
+    <ClCompile Include="include\RBTree.cpp" />
     <ClCompile Include="include\string.cpp" />
+    <ClCompile Include="include\utility.cpp" />
     <ClCompile Include="include\vector.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="utility.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="example.hpp" />
     <ClInclude Include="functional.hpp" />
     <ClInclude Include="include\algorithm.hpp" />
+    <ClInclude Include="include\AVLTree.hpp" />
+    <ClInclude Include="include\BSTree.hpp" />
     <ClInclude Include="include\global.hpp" />
     <ClInclude Include="include\hashtable.hpp" />
     <ClInclude Include="include\hash_map.hpp" />
     <ClInclude Include="include\list.hpp" />
+    <ClInclude Include="include\RBTree.hpp" />
     <ClInclude Include="include\sect_attribs.h" />
     <ClInclude Include="include\stdafx.h" />
     <ClInclude Include="include\string.hpp" />
     <ClInclude Include="include\type_traits.hpp" />
+    <ClInclude Include="include\utility.hpp" />
     <ClInclude Include="include\vector.hpp" />
-    <ClInclude Include="utility.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

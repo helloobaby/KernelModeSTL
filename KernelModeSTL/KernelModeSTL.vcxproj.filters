@@ -37,6 +37,15 @@
     <Filter Include="utility">
       <UniqueIdentifier>{9068f095-9f70-40a9-ae27-d7f4ce5f7739}</UniqueIdentifier>
     </Filter>
+    <Filter Include="BSTree">
+      <UniqueIdentifier>{105ba3b3-aabe-405d-90a9-5a1e980975e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AVLTree">
+      <UniqueIdentifier>{c661f37c-3b7d-4e47-8ce9-546071d71654}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RBTree">
+      <UniqueIdentifier>{a6d7c431-0b8c-4ebe-bb0b-6b08f93a1d55}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Inf Include="KernelModeSTL.inf">
@@ -68,8 +77,17 @@
     <ClCompile Include="include\hashtable.cpp">
       <Filter>hashmap</Filter>
     </ClCompile>
-    <ClCompile Include="utility.cpp">
+    <ClCompile Include="include\utility.cpp">
       <Filter>utility</Filter>
+    </ClCompile>
+    <ClCompile Include="include\BSTree.cpp">
+      <Filter>BSTree</Filter>
+    </ClCompile>
+    <ClCompile Include="include\RBTree.cpp">
+      <Filter>RBTree</Filter>
+    </ClCompile>
+    <ClCompile Include="include\AVLTree.cpp">
+      <Filter>AVLTree</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -109,8 +127,17 @@
     <ClInclude Include="functional.hpp">
       <Filter>algorithm</Filter>
     </ClInclude>
-    <ClInclude Include="utility.hpp">
+    <ClInclude Include="include\utility.hpp">
       <Filter>utility</Filter>
+    </ClInclude>
+    <ClInclude Include="include\BSTree.hpp">
+      <Filter>BSTree</Filter>
+    </ClInclude>
+    <ClInclude Include="include\RBTree.hpp">
+      <Filter>RBTree</Filter>
+    </ClInclude>
+    <ClInclude Include="include\AVLTree.hpp">
+      <Filter>AVLTree</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
