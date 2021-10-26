@@ -1,26 +1,31 @@
 #KernelModeSTL
 
-C++ STL for Windows Driver Develop¡£
+C++ STL for Windows Driver Developã€‚
 
-newºÍdeleteÖØÔØÎªExAllocatePoolWithQuotaTag£¬
+newå’Œdeleteé‡è½½ä¸ºExAllocatePoolWithQuotaTagï¼Œ
 
-·ÖÅäÊ§°Ü×Ô¶¯Òı·¢Òì³£¡£
+åˆ†é…å¤±è´¥è‡ªåŠ¨å¼•å‘å¼‚å¸¸ã€‚
 
-Ê¹ÓÃ·½·¨£º
+ä½¿ç”¨æ–¹æ³•ï¼š
 
-½«includeÎÄ¼ş¼Ğ¿½±´µ½ÄãµÄÏîÄ¿ÏÂ
+å°†includeæ–‡ä»¶å¤¹æ‹·è´åˆ°ä½ çš„é¡¹ç›®ä¸‹
 
-×¢Òâ:
+æ³¨æ„:
 
-ÔÚDriverEntryÖĞÄã±ØĞë±£Ö¤ÔÚÊ¹ÓÃÈÎºÎÈİÆ÷Ç°µ÷ÓÃ_CRT_INIT()£¬Õâ¸öº¯ÊıÊµÖÊÉÏÊÇµ÷ÓÃÈ«¾Ö¹¹ÔìÀ´³õÊ¼»¯È«¾ÖÀà¡£
+åœ¨DriverEntryä¸­ä½ å¿…é¡»ä¿è¯åœ¨ä½¿ç”¨ä»»ä½•å®¹å™¨å‰è°ƒç”¨_CRT_INIT()ï¼Œè¿™ä¸ªå‡½æ•°å®è´¨ä¸Šæ˜¯è°ƒç”¨å…¨å±€æ„é€ æ¥åˆå§‹åŒ–å…¨å±€ç±»ã€‚
 
-Í¬Àí£¬DriverUnloadµ÷ÓÃ_CRT_UNLOAD()£¬Îö¹¹ËùÓĞÈ«¾ÖÀà¡£µ±È»Èç¹ûÄã²»ÔÚºõÀàµÄ¹¹ÔìºÍÎö¹¹µÄ»°£¬¿ÉÒÔ²»µ÷ÓÃ¡£
+åŒç†ï¼ŒDriverUnloadè°ƒç”¨_CRT_UNLOAD()ï¼Œææ„æ‰€æœ‰å…¨å±€ç±»ã€‚å½“ç„¶å¦‚æœä½ ä¸åœ¨ä¹ç±»çš„æ„é€ å’Œææ„çš„è¯ï¼Œå¯ä»¥ä¸è°ƒç”¨ã€‚
 
 
-Àı×Ó(Example)£º
+ä¾‹å­(Example)ï¼š
 
 ![Image Text](https://github.com/helloobaby/KernelModeSTL/blob/master/show2.png)
 
 ![Image Text](https://github.com/helloobaby/KernelModeSTL/blob/master/show1.png)
 
 
+**Usage example**
+
+https://github.com/helloobaby/Intel-Hv/blob/04a251fba2b6d481a8230297ebd5344c6e51beca/HyperPlatform/service_hook.cpp#L129
+
+https://github.com/helloobaby/Intel-Hv/blob/04a251fba2b6d481a8230297ebd5344c6e51beca/HyperPlatform/service_hook.cpp#L134
