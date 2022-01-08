@@ -10,7 +10,7 @@ namespace std
 		{
 			if (!to_copy)
 			{
-				//ÏÂÃæ×¢ÊÍ´úÂë»áÔì³ÉÒ»×Ö½ÚµÄÄÚ´æĞ¹Â¶
+				//ä¸‹é¢æ³¨é‡Šä»£ç ä¼šé€ æˆä¸€å­—èŠ‚çš„å†…å­˜æ³„éœ²
 				//m_src = new char[1];
 				//m_src[0] = '\0';
 				m_size = 0;
@@ -60,7 +60,7 @@ namespace std
 			return m_src[index];
 		}
 
-		//------------------wstringµÄÊµÏÖ
+		//------------------wstringçš„å®ç°
 
 	
 		wstring::~wstring()
@@ -72,7 +72,7 @@ namespace std
 		{
 			if (!to_copy)
 			{
-				//ÏÂÃæ×¢ÊÍ´úÂë»áÔì³ÉÒ»×Ö½ÚµÄÄÚ´æĞ¹Â¶
+				//ä¸‹é¢æ³¨é‡Šä»£ç ä¼šé€ æˆä¸€å­—èŠ‚çš„å†…å­˜æ³„éœ²
 				//m_src = new char[1];
 				//m_src[0] = '\0';
 				m_size = 0;
@@ -88,7 +88,7 @@ namespace std
 		wstring::wstring(const wstring& str)
 		{
 			m_size = wcslen(str.c_str());
-			m_src = new wchar_t[m_size + 1];
+			m_src = new wchar_t[m_size + 2];
 			wcscpy(m_src, str.c_str());
 		}
 
