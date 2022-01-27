@@ -1,4 +1,4 @@
-#include"string.hpp"
+﻿#include"string.hpp"
 
 namespace std
 {
@@ -72,15 +72,12 @@ namespace std
 		{
 			if (!to_copy)
 			{
-				//下面注释代码会造成一字节的内存泄露
-				//m_src = new char[1];
-				//m_src[0] = '\0';
 				m_size = 0;
 			}
 			else
 			{
 				m_size = wcslen(to_copy);
-				m_src = new wchar_t[m_size + 1];
+				m_src = new wchar_t[m_size + 2];
 				wcscpy(m_src, to_copy);
 			}
 		}
