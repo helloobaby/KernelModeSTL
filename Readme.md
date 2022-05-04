@@ -16,3 +16,7 @@ https://github.com/helloobaby/Intel-Hv/blob/04a251fba2b6d481a8230297ebd5344c6e51
 TODO (user mode ported to kernel mode) :    
 https://github.com/helloobaby/bstree/blob/main/bstree.cpp
 
+
+
+2022.5.4  
+windows内核里自带很多数据结构,单双链表\队列\哈希表等,也有接口可以调用,并不需要自己实现,也没必要移植用户层的到内核里
